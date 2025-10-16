@@ -1,6 +1,6 @@
 package accounts;
 
-import org.example.persons.customers.Customer;
+import persons.customers.Customer;
 
 public class StudentBankAccount extends BankAccountWithPaymentCards {
 

@@ -1,10 +1,10 @@
 package accounts.factories;
 
-import org.example.accounts.BankAccount;
-import org.example.accounts.SaveBankAccount;
-import org.example.accounts.StudentBankAccount;
-import org.example.accounts.generators.BankAccountNumberGenerator;
-import org.example.persons.customers.Customer;
+import accounts.BankAccount;
+import accounts.SaveBankAccount;
+import accounts.StudentBankAccount;
+import accounts.generators.BankAccountNumberGenerator;
+import persons.customers.Customer;
 
 public class BankAccountFactory {
 

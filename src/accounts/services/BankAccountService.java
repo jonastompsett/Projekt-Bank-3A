@@ -1,8 +1,8 @@
 package accounts.services;
 
-import org.example.accounts.BaseBankAccount;
-import org.example.logger.ConsoleLogger;
-import org.example.logger.Logger;
+import accounts.BaseBankAccount;
+import logger.ConsoleLogger;
+import logger.Logger;
 
 public class BankAccountService {
 

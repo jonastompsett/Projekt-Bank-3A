@@ -1,13 +1,13 @@
-import org.example.accounts.BankAccount;
-import org.example.accounts.BaseBankAccount;
-import org.example.accounts.SaveBankAccount;
-import org.example.accounts.factories.BankAccountFactory;
-import org.example.accounts.services.BankAccountService;
-import org.example.logger.ConsoleLogger;
-import org.example.logger.FileSystemLogger;
-import org.example.logger.Logger;
-import org.example.persons.customers.Customer;
-import org.example.persons.customers.factories.CustomerFactory;
+import accounts.BankAccount;
+import accounts.BaseBankAccount;
+import accounts.SaveBankAccount;
+import accounts.factories.BankAccountFactory;
+import accounts.services.BankAccountService;
+import logger.ConsoleLogger;
+import logger.FileSystemLogger;
+import logger.Logger;
+import persons.customers.Customer;
+import persons.customers.factories.CustomerFactory;
 
 public class App {
 
