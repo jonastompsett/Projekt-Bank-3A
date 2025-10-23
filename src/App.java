@@ -2,7 +2,10 @@ import accounts.BankAccount;
 import accounts.BaseBankAccount;
 import accounts.SaveBankAccount;
 import accounts.factories.BankAccountFactory;
+import accounts.generators.BankAccountNumberGenerator;
 import accounts.services.BankAccountService;
+import cards.*;
+import com.google.inject.Inject;
 import logger.ConsoleLogger;
 import logger.FileSystemLogger;
 import logger.Logger;
@@ -10,29 +13,34 @@ import persons.customers.Customer;
 import persons.customers.factories.CustomerFactory;
 
 public class App {
+    @Inject
+    private FileSystemLogger fileSystemLogger;
 
-    Logger logger = new FileSystemLogger();
+    @Inject
+    private CustomerFactory customerFactory;
 
-    CustomerFactory customerFactory = new CustomerFactory();
-    BankAccountService bankAccountService = new BankAccountService();
-    BankAccountFactory bankAccountFactory = new BankAccountFactory();
+    @Inject
+    private BankAccountService bankAccountService;
+
+    @Inject
+    private BankAccountFactory bankAccountFactory;
 
     public void run() {
-        Customer customer = customerFactory.createCustomer("c-123", "Tomas", "Pesek");
-        logger.log(customer.getUuid() + ": " + customer.getFirstName() + " " + customer.getLastName());
+        Customer customer = customerFactory.createCustomer("c-123", "Jonas", "Tompsett");
+        fileSystemLogger.log(customer.getUuid() + ": " + customer.getFirstName() + " " + customer.getLastName());
 
-        logger.log("=== TEST BANK ACCOUNT");
+        fileSystemLogger.log("=== TEST BANK ACCOUNT");
         BaseBankAccount account1 = testBankAccount(customer);
 
-        logger.log(account1 instanceof BankAccount ? "Bank" : "Save");
+        fileSystemLogger.log(account1 instanceof BankAccount ? "Bank" : "Save");
 
-        logger.log("=== TEST SAVE ACCOUNT");
+        fileSystemLogger.log("=== TEST SAVE ACCOUNT");
         BaseBankAccount account2 = testSaveAccount(customer);
-        logger.log(account2 instanceof  BankAccount ? "Bank" : "Save");
+        fileSystemLogger.log(account2 instanceof  BankAccount ? "Bank" : "Save");
 
         if (account2 instanceof SaveBankAccount) {
             float interestRate = ((SaveBankAccount)account2).getInterestRate();
-            logger.log("Interest Rate: " + interestRate);
+            fileSystemLogger.log("Interest Rate: " + interestRate);
         }
     }
 
@@ -44,18 +52,18 @@ public class App {
         );
 
         try{
-            logger.log(account.getUuid() + "(" + account.getBankAccountNumber() + "): " + account.getBalance());
+            fileSystemLogger.log(account.getUuid() + "(" + account.getBankAccountNumber() + "): " + account.getBalance());
 
             // account.addBalance(500);
             bankAccountService.deposit(account, 500);
-            logger.log(account.getUuid() + ": " + account.getBalance());
+            fileSystemLogger.log(account.getUuid() + ": " + account.getBalance());
 
             // account.subtractBalance(400);
             bankAccountService.withdraw(account, 500);
-            logger.log(account.getUuid() + ": " + account.getBalance());
+            fileSystemLogger.log(account.getUuid() + ": " + account.getBalance());
 
         } catch (Exception e) {
-            logger.log("Error: " + e.getMessage());
+            fileSystemLogger.log("Error: " + e.getMessage());
         }
 
         return account;
@@ -68,20 +76,20 @@ public class App {
         );
 
         try {
-            logger.log(account.getUuid() + " (" + account.getBankAccountNumber() + "): " + account.getBalance());
+            fileSystemLogger.log(account.getUuid() + " (" + account.getBankAccountNumber() + "): " + account.getBalance());
 
             // account.addBalance(500);
             bankAccountService.deposit(account, 500);
-            logger.log(account.getUuid() + ": " + account.getBalance());
+            fileSystemLogger.log(account.getUuid() + ": " + account.getBalance());
 
             bankAccountService.deposit(account, 400);
-            logger.log(account.getUuid() + ": " + account.getBalance());
+            fileSystemLogger.log(account.getUuid() + ": " + account.getBalance());
 
             // account.subtractBalance(300);
             bankAccountService.withdraw(account, 300);
 
         } catch (Exception e) {
-            logger.log("Error: " + e.getMessage());
+            fileSystemLogger.log("Error: " + e.getMessage());
         }
 
         return account;

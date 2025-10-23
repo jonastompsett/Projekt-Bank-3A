@@ -1,13 +1,22 @@
 package cards;
 
+import com.google.inject.Inject;
+
 import java.util.UUID;
 
 public class PaymentCardFactory {
 
-    private final PaymentCardNumberGenerator paymentCardNumberGenerator = new PaymentCardNumberGenerator();
-    private final PaymentCardCvvGenerator paymentCardCvvGenerator = new PaymentCardCvvGenerator();
-    private final PaymentCardPinGenerator  paymentCardPinGenerator = new PaymentCardPinGenerator();
-    private final PaymentCardExpirationCalculator paymentCardExpirationCalculator = new PaymentCardExpirationCalculator();
+    @Inject
+    private PaymentCardNumberGenerator paymentCardNumberGenerator;
+
+    @Inject
+    private PaymentCardCvvGenerator paymentCardCvvGenerator;
+
+    @Inject
+    private PaymentCardPinGenerator paymentCardPinGenerator;
+
+    @Inject
+    private PaymentCardExpirationCalculator paymentCardExpirationCalculator;
 
     public PaymentCard create() {
 
