@@ -19,7 +19,7 @@ public class InterestFacade {
             return; // ještě není čas úročit
         }
 
-        System.out.println("✅ Úročení spořících účtů...");
+        System.out.println("uroceni sporicich uctu...");
 
         for (SaveBankAccount acc : BankAccountFactory.savingAccounts) {
             double interest = calculator.calculateInterest(acc);
