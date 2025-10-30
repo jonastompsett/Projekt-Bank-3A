@@ -7,10 +7,15 @@ import accounts.generators.BankAccountNumberGenerator;
 import com.google.inject.Inject;
 import persons.customers.Customer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BankAccountFactory {
 
     @Inject
     private BankAccountNumberGenerator bankAccountNumberGenerator;
+
+    public static final List<SaveBankAccount> savingAccounts = new ArrayList<>();
 
     public BankAccount createBankAccount(String uuid, Customer customer) {
         return new BankAccount(
@@ -21,12 +26,14 @@ public class BankAccountFactory {
     }
 
     public SaveBankAccount createSaveAccount(String uuid, Customer customer, float interestRate) {
-        return new SaveBankAccount(
+        SaveBankAccount account = new SaveBankAccount(
                 uuid,
                 bankAccountNumberGenerator.generateRandomAccountNumber(),
                 customer,
                 interestRate
         );
+        savingAccounts.add(account);
+        return account;
     }
 
     public StudentBankAccount createStudentAccount(String uuid, Customer customer, String schoolName) {

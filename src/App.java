@@ -4,6 +4,7 @@ import accounts.SaveBankAccount;
 import accounts.factories.BankAccountFactory;
 import accounts.generators.BankAccountNumberGenerator;
 import accounts.services.BankAccountService;
+import accounts.services.InterestFacade;
 import cards.*;
 import com.google.inject.Inject;
 import logger.ConsoleLogger;
@@ -11,6 +12,7 @@ import logger.FileSystemLogger;
 import logger.Logger;
 import persons.customers.Customer;
 import persons.customers.factories.CustomerFactory;
+
 
 public class App {
     @Inject
@@ -24,6 +26,10 @@ public class App {
 
     @Inject
     private BankAccountFactory bankAccountFactory;
+
+    @Inject
+    private InterestFacade interestFacade;
+
 
     public void run() {
         Customer customer = customerFactory.createCustomer("c-123", "Jonas", "Tompsett");
@@ -42,6 +48,12 @@ public class App {
             float interestRate = ((SaveBankAccount)account2).getInterestRate();
             fileSystemLogger.log("Interest Rate: " + interestRate);
         }
+
+        InterestCron cron = new InterestCron(interestFacade);
+        cron.start();
+
+        System.out.println("cron started and running in background.");
+
     }
 
     private BaseBankAccount testSaveAccount(Customer customer) {
