@@ -4,11 +4,13 @@ import accounts.BankAccount;
 import accounts.SaveBankAccount;
 import accounts.StudentBankAccount;
 import accounts.generators.BankAccountNumberGenerator;
+import com.google.inject.Inject;
 import persons.customers.Customer;
 
 public class BankAccountFactory {
 
-    private final BankAccountNumberGenerator bankAccountNumberGenerator = new BankAccountNumberGenerator();
+    @Inject
+    private BankAccountNumberGenerator bankAccountNumberGenerator;
 
     public BankAccount createBankAccount(String uuid, Customer customer) {
         return new BankAccount(

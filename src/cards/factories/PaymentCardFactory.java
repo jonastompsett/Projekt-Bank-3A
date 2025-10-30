@@ -1,5 +1,10 @@
-package cards;
+package cards.factories;
 
+import accounts.BaseBankAccount;
+import cards.generators.PaymentCardCvvGenerator;
+import cards.generators.PaymentCardNumberGenerator;
+import cards.generators.PaymentCardPinGenerator;
+import cards.*;
 import com.google.inject.Inject;
 
 import java.util.UUID;
@@ -18,7 +23,7 @@ public class PaymentCardFactory {
     @Inject
     private PaymentCardExpirationCalculator paymentCardExpirationCalculator;
 
-    public PaymentCard create() {
+    public PaymentCard create(BaseBankAccount bankAccount) {
 
         String uuid = UUID.randomUUID().toString();
         String cardNUmber = this.paymentCardNumberGenerator.generateCardNumber();

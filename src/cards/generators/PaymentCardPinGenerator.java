@@ -1,4 +1,4 @@
-package cards;
+package cards.generators;
 
 import java.security.SecureRandom;
 
