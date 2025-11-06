@@ -34,3 +34,63 @@
 [FILE] u-123: 0.0
 [FILE] Save
 [FILE] Interest Rate: 5.0
+[FILE] c-123: Jonas Tompsett
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (3522956603): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 900.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(8581856330): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 0.5
+[FILE] c-123: Jonas Tompsett
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (4148749835): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 900.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(5889376442): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 0.5
+[FILE] c-123: Jonas Tompsett
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (3249650295): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 900.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(8557468136): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 0.5
+[FILE] c-123: Jonas Tompsett
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (0103024355): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 900.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(7383450596): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 0.5
+[FILE] c-123: Jonas Tompsett
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (1696113590): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 900.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(2465929491): 0.0
+[FILE] u-123: 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 0.5

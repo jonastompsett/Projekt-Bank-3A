@@ -15,10 +15,8 @@ public class SaveBankAccount extends BaseBankAccount {
 
         this.interestRate = interestRate;
         this.nextInterestTime = LocalDateTime.now();
-    }
 
-    public SaveBankAccount(String uuid, String bankAccountNumber, Customer customer) {
-        this(uuid, bankAccountNumber, customer, 0);
+        this.nextInterestTime = LocalDateTime.now().plusMinutes(5);
     }
 
     public float getInterestRate() {

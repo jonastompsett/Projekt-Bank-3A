@@ -52,7 +52,7 @@ public class App {
         InterestCron cron = new InterestCron(interestFacade);
         cron.start();
 
-        System.out.println("cron started and running in background.");
+        System.out.println("cron running in background.");
 
     }
 
@@ -60,7 +60,7 @@ public class App {
         BaseBankAccount account = bankAccountFactory.createSaveAccount(
                 "u-123",
                 customer,
-                5
+                0.5f
         );
 
         try{
