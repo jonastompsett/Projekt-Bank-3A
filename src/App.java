@@ -35,12 +35,12 @@ public class App {
         Customer customer = customerFactory.createCustomer("c-123", "Jonas", "Tompsett");
         fileSystemLogger.log(customer.getUuid() + ": " + customer.getFirstName() + " " + customer.getLastName());
 
-        fileSystemLogger.log("=== TEST BANK ACCOUNT");
+        fileSystemLogger.log("TEST BANK ACCOUNT");
         BaseBankAccount account1 = testBankAccount(customer);
 
         fileSystemLogger.log(account1 instanceof BankAccount ? "Bank" : "Save");
 
-        fileSystemLogger.log("=== TEST SAVE ACCOUNT");
+        fileSystemLogger.log("TEST SAVE ACCOUNT");
         BaseBankAccount account2 = testSaveAccount(customer);
         fileSystemLogger.log(account2 instanceof  BankAccount ? "Bank" : "Save");
 
