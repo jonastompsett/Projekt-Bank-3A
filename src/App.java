@@ -12,6 +12,8 @@ import logger.FileSystemLogger;
 import logger.Logger;
 import persons.customers.Customer;
 import persons.customers.factories.CustomerFactory;
+import transactions.TransactionExportCron;
+import transactions.TransactionExportFacade;
 
 
 public class App {
@@ -29,6 +31,10 @@ public class App {
 
     @Inject
     private InterestFacade interestFacade;
+
+    @Inject
+    private TransactionExportFacade exportFacade;
+
 
 
     public void run() {
@@ -51,6 +57,9 @@ public class App {
 
         InterestCron cron = new InterestCron(interestFacade);
         cron.start();
+
+        TransactionExportCron exportCron = new TransactionExportCron(exportFacade);
+        exportCron.start();
 
         System.out.println("cron running in background.");
 

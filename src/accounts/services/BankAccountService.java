@@ -1,12 +1,23 @@
 package accounts.services;
 
 import accounts.BaseBankAccount;
+import com.google.inject.Inject;
 import logger.ConsoleLogger;
 import logger.Logger;
+import transactions.Transaction;
+import transactions.TransactionFactory;
+import transactions.TransactionManager;
 
 public class BankAccountService {
 
     private final Logger logger = new ConsoleLogger();
+
+    @Inject
+    private TransactionFactory transactionFactory;
+
+    @Inject
+    private TransactionManager transactionManager;
+
 
     public void deposit(BaseBankAccount account, double amount) {
         if (amount <= 0) {
@@ -24,6 +35,12 @@ public class BankAccountService {
 
         double newBalance = account.getBalance() + amount;
         account.setBalance(newBalance);
+
+        Transaction t = transactionFactory.createDeposit(
+                account.getBankAccountNumber(),
+                amount
+        );
+        transactionManager.addTransaction(account.getBankAccountNumber(), t);
     }
 
     public void withdraw(BaseBankAccount account, double amount) {
@@ -38,5 +55,11 @@ public class BankAccountService {
 
         double newBalance = account.getBalance() - amount;
         account.setBalance(newBalance);
+        Transaction t = transactionFactory.createWithdraw(
+                account.getBankAccountNumber(),
+                amount
+        );
+        transactionManager.addTransaction(account.getBankAccountNumber(), t);
+
     }
 }

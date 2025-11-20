@@ -5,6 +5,9 @@ import accounts.services.BankAccountService;
 import accounts.services.InterestFacade;
 import com.google.inject.AbstractModule;
 import persons.customers.factories.CustomerFactory;
+import transactions.TransactionExportFacade;
+import transactions.TransactionFactory;
+import transactions.TransactionManager;
 
 public class BankInjector extends AbstractModule {
     @Override
@@ -14,5 +17,9 @@ public class BankInjector extends AbstractModule {
         bind(CustomerFactory.class);
 
         bind(InterestFacade.class);
+
+        bind(TransactionManager.class).asEagerSingleton();
+        bind(TransactionFactory.class);
+        bind(TransactionExportFacade.class);
     }
 }
